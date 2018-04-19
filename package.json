@@ -6,10 +6,10 @@
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "node scripts/start.js",
-    "start": "npm-run-all -p watch-css start-js",
+    "start": "run-p watch-css start-js",
     "start:prod": "node index.js",
     "build-js": "node scripts/build.js",
-    "build": "npm-run-all build-css build-js",
+    "build": "run-s build-css build-js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
@@ -77,6 +77,7 @@
     "jest": "^22.4.3",
     "node-sass": "^4.8.3",
     "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.2",
     "postcss-csso": "^3.0.0",
     "postcss-flexbugs-fixes": "^3.3.0",
     "postcss-loader": "^2.1.4",
